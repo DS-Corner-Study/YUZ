@@ -1,0 +1,5 @@
+Hello, Corner!
+
+
+git remote add origin https://github.com/yellow-jam/2023CornerStudy.git
+git remote add upstream https://github.com/DS-Corner-Study/YUZ.git
