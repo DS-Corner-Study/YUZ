@@ -1,0 +1,22 @@
+const express = require('express');
+const { renderProfile, renderJoin, renderMain } = require('../controllers/page');
+
+const router = express.Router();
+
+// 템플릿 엔진에서 사용할 user, followerCount, followingCount, followingIdList 변수를 res.locals로 설정함
+// 이유: 모든 템플릿 엔진에서 공통으로 사용할 변수
+router.use((req, res, next) => { 
+  res.locals.user = null;
+  res.locals.followerCount = 0;
+  res.locals.followingCount = 0;
+  res.locals.followingIdList = [];
+  next();
+});
+
+router.get('/profile', renderProfile);
+
+router.get('/join', renderJoin);
+
+router.get('/', renderMain);
+
+module.exports = router;
